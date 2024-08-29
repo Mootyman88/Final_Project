@@ -1,0 +1,6 @@
+.Rproj.user/
+Outputs/
+Process/
+Raw_Data/
+.Rhistory
+Final_Project
