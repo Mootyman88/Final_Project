@@ -4,3 +4,8 @@ Process/
 Raw_Data/
 .Rhistory
 Final_Project
+*.docx
+*.jpg
+*.png
+*.tiff
+*.tif
