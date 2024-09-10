@@ -1,12 +1,6 @@
 .Rproj.user/
 Outputs/
-Process/
+Process_Data/
 Raw_Data/
 .Rhistory
-Final_Project
-*.docx
-*.jpg
-*.png
-*.tiff
-*.tif
-*.xlsx
+Final_Project.Rproj
