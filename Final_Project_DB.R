@@ -1,10 +1,9 @@
-# Load Packages ####
-
 library(DBI)
 library(RSQLite)
 
-Final_db <- dbConnect(RSQLite::SQLite(), "Final.db")
+Final_db <- dbConnect (RSQLite::SQLite(), "Final.db")
 
+#Table for Lamprey
 dbExecute(Final_db,
           "CREATE TABLE Lamprey (
     [Lamprey ID]   TEXT    PRIMARY KEY
@@ -15,6 +14,7 @@ dbExecute(Final_db,
 );
 ")
 
+#Table for Capture Site
 dbExecute(Final_db,
           "CREATE TABLE [Capture Site] (
     [Capture Site] TEXT    PRIMARY KEY
@@ -24,8 +24,9 @@ dbExecute(Final_db,
 );
 ")
 
-dbExecute (Final_db,
-           "CREATE TABLE Captures (
+#Table for Captures
+dbExecute(Final_db,
+          "CREATE TABLE Captures (
     [Capture ID]   TEXT PRIMARY KEY
                         NOT NULL,
     [Lamprey ID]   TEXT REFERENCES Lamprey ([Lamprey ID]) MATCH SIMPLE
@@ -35,8 +36,9 @@ dbExecute (Final_db,
 );
 ")
 
-dbExecute (Final_db,
-           "CREATE TABLE Morphometrics (
+#Table for Morphometrics
+dbExecute(Final_db,
+          "CREATE TABLE Morphometrics (
     [Measurement ID] TEXT    PRIMARY KEY
                              NOT NULL,
     Length           NUMERIC,
@@ -47,10 +49,12 @@ dbExecute (Final_db,
 );
 ")
 
-dbExecute (Final_db,
-           "CREATE TABLE Tags (
-             [PIT Tag #]  TEXT PRIMARY KEY
-              NOT NULL,
-              Status       TEXT,
-              [Lamprey ID] TEXT REFERENCES Lamprey ([Lamprey ID]) MATCH SIMPLE
-           );")
+#Table for Tags
+dbExecute(Final_db,
+          "CREATE TABLE Tags (
+    [PIT Tag #]  TEXT PRIMARY KEY
+                      NOT NULL,
+    Status       TEXT,
+    [Lamprey ID] TEXT REFERENCES Lamprey ([Lamprey ID]) MATCH SIMPLE
+);
+")
