@@ -1,0 +1,16 @@
+pacific-lamprey
+institution
+study-site
+database-creation
+create-lamprey-table
+create-captures-table
+create-capture-site-table
+create-tag-table
+create-morphometrics-table
+connecting-sqlite-to-rstudio-to-upload-my-files
+uploaded-tables-into-rstudio
+cross
+data-prepping-for
+data-visualization
+boxplots-lamprey-lengths-per-capture-and-per-release-site
+url-your-book-url-like-httpsbookdown.orgyihuibookdown

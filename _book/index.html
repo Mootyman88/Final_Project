@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Translocated Pacific Lamprey in the Warm Springs River</title>
+  <meta name="description" content="Translocated Pacific Lamprey in the Warm Springs River" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Translocated Pacific Lamprey in the Warm Springs River" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Translocated Pacific Lamprey in the Warm Springs River" />
+  
+  
+  
+
+<meta name="author" content="Aldwin Keo" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="database-creation.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pacific Lamprey</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#institution"><i class="fa fa-check"></i><b>1.1</b> Institution</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#study-site"><i class="fa fa-check"></i><b>1.2</b> Study Site</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="database-creation.html"><a href="database-creation.html"><i class="fa fa-check"></i><b>2</b> Database Creation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="database-creation.html"><a href="database-creation.html#create-lamprey-table"><i class="fa fa-check"></i><b>2.1</b> Create Lamprey Table</a></li>
+<li class="chapter" data-level="2.2" data-path="database-creation.html"><a href="database-creation.html#create-captures-table"><i class="fa fa-check"></i><b>2.2</b> Create Captures Table</a></li>
+<li class="chapter" data-level="2.3" data-path="database-creation.html"><a href="database-creation.html#create-capture-site-table"><i class="fa fa-check"></i><b>2.3</b> Create Capture Site Table</a></li>
+<li class="chapter" data-level="2.4" data-path="database-creation.html"><a href="database-creation.html#create-tag-table"><i class="fa fa-check"></i><b>2.4</b> Create Tag Table</a></li>
+<li class="chapter" data-level="2.5" data-path="database-creation.html"><a href="database-creation.html#create-morphometrics-table"><i class="fa fa-check"></i><b>2.5</b> Create Morphometrics Table</a></li>
+<li class="chapter" data-level="2.6" data-path="database-creation.html"><a href="database-creation.html#connecting-sqlite-to-rstudio-to-upload-my-files"><i class="fa fa-check"></i><b>2.6</b> Connecting SQLite to Rstudio to upload my files</a></li>
+<li class="chapter" data-level="2.7" data-path="database-creation.html"><a href="database-creation.html#uploaded-tables-into-rstudio"><i class="fa fa-check"></i><b>2.7</b> Uploaded tables into Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Data Cleaning</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="cross.html"><a href="cross.html#data-prepping-for"><i class="fa fa-check"></i><b>3.0.1</b> Data prepping for:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>4</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplots-lamprey-lengths-per-capture-and-per-release-site"><i class="fa fa-check"></i><b>4.1</b> Boxplots, lamprey lengths per capture and per release site</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Translocated Pacific Lamprey in the Warm Springs River</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Translocated Pacific Lamprey in the Warm Springs River</h1>
+<p class="author"><em>Aldwin Keo</em></p>
+<p class="date"><em>2/4/2025</em></p>
+</div>
+<div id="pacific-lamprey" class="section level1 hasAnchor" number="1">
+<h1><span class="header-section-number">Chapter 1</span> Pacific Lamprey<a href="index.html#pacific-lamprey" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Pacific Lamprey, <em>Entrosphenus tridentatus</em>, are culturally important to tribes around the Columbia River and tribes around the tributaries to the Columbia River, and it is well known that dams are contributing to the decline in both returning adult lamprey and migrating juvenile lamprey (Close et al 2002). Tribes around the Columbia River and the Columbia River Tributaries rely on lamprey for harvest, and a significant species to the food web because of the nutritional value they bring from the ocean into freshwaters (Close et al 2002). Lamprey has given us an idea of what anthropogenic structures are doing to the ecological environment (Close et al 2002.). The Confederated Tribes of Warm Springs lamprey program started to translocate lamprey from Bonneville Dam, Columbia River, and Sherears Falls, Deschutes River.</p>
+<p><img src="images/Lamprey.jpg" /></p>
+<div id="institution" class="section level2 hasAnchor" number="1.1">
+<h2><span class="header-section-number">1.1</span> Institution<a href="index.html#institution" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This research is being done at the University of Idaho to fulfill Aldwin Keo’s requirements for his Master’s and Doctoral Thesis.</p>
+</div>
+<div id="study-site" class="section level2 hasAnchor" number="1.2">
+<h2><span class="header-section-number">1.2</span> Study Site<a href="index.html#study-site" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Study Site is the Warm Spring River on the Warm Springs Reservation and the two collection sites were Sherears Falls and Bonneville Dam</p>
+<p><img src="images/2025-01-30.png" /></p>
+<p>Figure 1. shows the Warm Springs River and Beaver Creek. The two streams are where translocated lamprey from both Bonneville Dam and Sherears Falls were released.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="database-creation.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
