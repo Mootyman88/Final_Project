@@ -1,0 +1,42 @@
+# Database Creation
+
+All the adult lamprey that were used for this study received a Passive Integrated Transponder (PIT) tag, lengths and weight were taken, genetic clips from the dorsal fins were taken, capture and release site was recorded. A data base using RStudio and SQLite was used to organize the data.
+
+![](images/2025-01-30%20(3).png)
+
+Figure 3. shows the schematic of data base design
+
+## 2.1 Package upload and code for building database
+
+The DBI and RSQLite package in RStudio needs to be uploaded in order to connect to SQLite.
+
+```         
+#install packages "DBI" and "RSQLite"
+install.packages("DBI")
+install.packages("RSQLite")
+
+#Open DBI and RSQLite library
+library(DBI)
+library(RSQLite)
+
+#Connecting to my "Final.db" data base
+Final_db <- dbConnect (RSQLite::SQLite(), "Final.db")
+```
+
+## Creating Lamprey Table
+
+The Lamprey table contains: Lamprey ID, Capture Site, Release Site, Genetic, and PIT Tag #.
+
+Create table in SQLite
+
+```         
+CREATE TABLE Lamprey (
+    [Lamprey ID]   TEXT    PRIMARY KEY
+                           NOT NULL,
+    [Capture Site] TEXT    NOT NULL
+                           REFERENCES Captures ([Capture Site]),
+    [Release Site] TEXT    NOT NULL,
+    Genetic        INTEGER,
+    [PIT Tags #]   TEXT    REFERENCES Lamprey ([PIT Tags #]) 
+);
+```

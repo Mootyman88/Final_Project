@@ -1,0 +1,158 @@
+# Data Cleaning {#cross}
+
+### Data prepping for:
+
+1.  Average length per site
+
+    1.  Joined the tables "Morphometrics" and "Lamprey"
+
+    2.  removed columns not needed and reorganized where Capture site column came before Length.
+
+    3.  renamed "Capture Site" and "Length (mm)" to "capture_site" and "length" to remove spaces
+
+    4.  grouped the columns by capture site
+
+    5.  calculated average length of lamprey per captured site
+
+        ```{r Create table of average length per site, eval = FALSE, echo=TRUE}
+        #Creating table with average length per site
+        average_length_per_site <- left_join(Morphometrics, Lamprey, by = "Lamprey ID") %>% 
+          select(-"Measurement ID",-"Genetic.x", -"Release Site", -"Genetic.y", -"Release Site", -"PIT Tags #",
+                 -"Lamprey ID", -"Girth (mm)") %>% 
+          select("Capture Site", "Length (mm)") %>% 
+         rename(capture_site = "Capture Site", length = "Length (mm)") %>% 
+          group_by(capture_site) %>% 
+          summarize(average = mean(length))
+        ```
+
+2.  average girth per capture site
+
+    1.  Joined the tables "Morphometrics" and "Lamprey"
+
+    2.  removed columns not needed and reorganized where Capture site column came before girth.
+
+    3.  renamed "Capture Site" and "Girth (mm)" to "capture_site" and "girth" to remove spaces
+
+    4.  grouped the columns by capture site
+
+    5.  calculated average length of lamprey per captured site
+
+        ```{r creating table for average girth per site, eval = FALSE, echo = TRUE}
+        #create table with average girth per site
+        average_girth_per_site <- left_join(Morphometrics, Lamprey, by = "Lamprey ID") %>% 
+          select(-"Measurement ID",-"Genetic.x", -"Release Site", -"Genetic.y", -"Release Site", -"PIT Tags #",
+                 -"Lamprey ID", -"Length (mm)") %>% 
+          select("Capture Site", "Girth (mm)") %>% 
+          rename(capture_site = "Capture Site", girth = "Girth (mm)") %>% 
+          group_by(capture_site) %>% 
+          summarize(average = mean(girth))
+        ```
+
+3.  average length per release site
+
+    1.  Joined the tables "Morphometrics" and "Lamprey"
+
+    2.  removed columns not needed and reorganized where release site column came before Length.
+
+    3.  renamed "Release Site" and "Length (mm)" to "release_site" and "length" to remove spaces
+
+    4.  Reorganized columns with "release_site" being first before "length"
+
+    5.  renamed "Beaver" responses to "BEAV" to match the data in the table
+
+    6.  grouped the columns by release site
+
+    7.  calculated average length of lamprey per captured site
+
+        ```{r creating table for average length at release site, echo = TRUE, eval = FALSE}
+        #create table with average length per release site
+        average_length_per_release_site <- left_join(Morphometrics, Lamprey, by = "Lamprey ID") %>% 
+          select(-"Measurement ID",-"Genetic.x", -"Genetic.y", -"Capture Site", -"PIT Tags #",
+                 -"Lamprey ID", -"Girth (mm)") %>% 
+          select("Release Site", "Length (mm)") %>% 
+          rename(release_site = "Release Site", length = "Length (mm)") %>% 
+          mutate(release_site = case_when(
+            release_site == "Beaver" ~ "BEAV",TRUE ~ release_site)) %>% 
+          group_by(release_site) %>% 
+          summarize(average = mean(length))
+        ```
+
+4.  average girth per release site
+
+    1.  Joined the tables "Morphometrics" and "Lamprey"
+
+    2.  removed columns not needed and reorganized where release site column came before girth.
+
+    3.  renamed "Release Site" and "Girth (mm)" to "release_site" and "girth" to remove spaces
+
+    4.  Reorganized columns with "release_site" being first before "girth"
+
+    5.  renamed "Beaver" responses to "BEAV" to match the data in the table
+
+    6.  grouped the columns by release site
+
+    7.  calculated average length of lamprey per captured site
+
+        ```{r create table for average girth per release site, echo = TRUE, eval = FALSE}
+        #create table with average girth per relase site
+        average_girth_per_release_site <- left_join(Morphometrics, Lamprey, by = "Lamprey ID") %>% 
+          select(-"Measurement ID",-"Genetic.x", -"Genetic.y", -"Capture Site", -"PIT Tags #",
+                 -"Lamprey ID", -"Length (mm)") %>% 
+          select("Release Site", "Girth (mm)") %>% 
+          rename(release_site = "Release Site", girth = "Girth (mm)") %>% 
+          mutate(release_site = case_when(
+            release_site == "Beaver" ~ "BEAV",TRUE ~ release_site)) %>% 
+          group_by(release_site) %>% 
+          summarize(average = mean(girth))
+        ```
+
+5.  number of captured lamprey per day at Sherears Falls
+
+    1.  removed the columns that were not need in the "Captures" table
+
+    2.  renamed "Capture Site" to "capture_site" to remove the spaces
+
+    3.  changed the "Shears" outputs to "Sherears" for correct spelling errors.
+
+    4.  filtered for Sherears captured lamprey only
+
+    5.  grouped the lamprey by the day they were captured
+
+    6.  tallied by how many were captured per day
+
+        ```{r how many lamprey captured per day, echo = TRUE, eval = FALSE}
+        # how many lamprey captured per day
+        capture_per_day_sherears <- Captures %>% 
+          select(-"Capture ID", -"Lamprey ID") %>% 
+          rename(capture_site = "Capture Site") %>% 
+          mutate(capture_site = case_when(
+            capture_site == "Shears" ~ "Sherears", TRUE ~ capture_site)) %>% 
+          filter(capture_site == "Sherears") %>% 
+          group_by(Date) %>% 
+          tally
+        ```
+
+6.  Suvival of tagging at the Warm Springs Hatchery Site
+
+    1.  Joined the "Lamprey" and "Tags" table
+
+    2.  removed all the unwanted columns
+
+    3.  renamed "Release Site" to "release_site" to remove spaces
+
+    4.  added column "survival" into the table and set alive = 1 and dead = 0
+
+    5.  filtered out all sites besides "WS Hatch"
+
+    6.  calculated survival by summing Alive Lamprey by number of released at "WS Hatch) and multiplying by 100 to get an percentage
+
+        ```{r survival after tagging, echo = TRUE, eval = FALSE}
+        #survival after tagging
+        tag_survival_capture_site <- full_join(Lamprey, Tags) %>% 
+          select(-"Lamprey ID", -"Capture Site", -"Genetic", -"PIT Tag #",-"PIT Tags #") %>% 
+          rename(release_site = "Release Site") %>% 
+          mutate(survival = ifelse(Status == "Alive", 1, 0)) %>% 
+          filter(release_site == "WS Hatch") %>% 
+          select(-"Status") %>% 
+          summarize((sum(survival)/40))*100
+        ```

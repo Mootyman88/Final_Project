@@ -1,0 +1,141 @@
+# Database Creation
+
+Data collected for this project was: collection sites, release sites, length, girth, PIT tag ID, and genetic clips. below is a flow chart of tables created in Rstudio and SQLite.
+
+![](images/2025-01-30%20(3).png)
+
+## Create Lamprey Table
+
+Code used in SQLite to create the Lamprey Table. Table includes Lamprey ID(primary key), Capture Sites(Foreign Key), Release Sites, Genetic, and PIT Tag \#(Foreign Key).
+
+```{sql create lamprey table, eval=FALSE, echo = TRUE}
+CREATE TABLE Lamprey (
+    [Lamprey ID]   TEXT    PRIMARY KEY
+                           NOT NULL,
+    [Capture Site] TEXT    NOT NULL
+                           REFERENCES Captures ([Capture Site]),
+    [Release Site] TEXT    NOT NULL,
+    Genetic        INTEGER,
+    [PIT Tags #]   TEXT    REFERENCES Lamprey ([PIT Tags #]) 
+);
+```
+
+I copied and pasted the raw data from my excel file into the Lamprey Table.
+
+## Create Captures Table
+
+Code used in SQLite to create Capture Table. Table includes: Capture ID(Primary Key), Lamprey ID (Foreign Key), Capture Site(Foreign Key), Date.
+
+```{sql create capture table, echo = TRUE, eval = FALSE}
+CREATE TABLE Captures (
+    [Capture ID]   TEXT CONSTRAINT [duplicated values] PRIMARY KEY,
+    [Lamprey ID]   TEXT REFERENCES Lamprey ([Lamprey ID]) MATCH SIMPLE,
+    [Capture Site] TEXT REFERENCES Capture_Site ([Capture Site]) MATCH SIMPLE,
+    Date           TEXT
+);
+```
+
+## Create Capture Site Table
+
+Code used in SQLite to create Capture Site Table. Table includes: Capture Site(Primary Key), Capture UTM-X, Capture UTM-Y.
+
+```{sql create capture site table, echo = TRUE, eval = FALSE}
+CREATE TABLE Capture_Site (
+    [Capture Site]  TEXT    NOT NULL
+                            PRIMARY KEY
+                            UNIQUE ON CONFLICT REPLACE,
+    [Capture UTM-X] NUMERIC NOT NULL,
+    [Capture UTM-Y] NUMERIC NOT NULL
+);
+```
+
+## Create Tag Table
+
+Code used in SQLite to create Tag Table. Table includes: PIT Tag \#(Primary Key), Status, Lamprey ID (Foreign Key).
+
+```{sql create tag table, echo = TRUE, eval = FALSE}
+CREATE TABLE Tags (
+    [PIT Tag #]  TEXT PRIMARY KEY
+                      NOT NULL,
+    Status       TEXT,
+    [Lamprey ID] TEXT REFERENCES Lamprey ([Lamprey ID]) MATCH SIMPLE
+);
+```
+
+## Create Morphometrics Table
+
+Code used in SQLite to create Morphometrics Table. Table includes: Measurement ID(Primary Key), Length, Girth, Genetic, Lamprey ID(Foreign Key).
+
+```{sql create morphometrics table, echo = TRUE, eval = FALSE}
+CREATE TABLE Morphometrics (
+    [Measurement ID] TEXT    PRIMARY KEY
+                             NOT NULL,
+    [Length (mm)]    NUMERIC,
+    [Girth (mm)]     NUMERIC,
+    Genetic          INTEGER,
+    [Lamprey ID]     TEXT    REFERENCES Lamprey ([Lamprey ID]) MATCH SIMPLE
+                             NOT NULL
+);
+```
+
+After creating the tables I copied the information into the tables from my raw excel file of my data.
+
+## Connecting SQLite to Rstudio to upload my files
+
+Load packages.
+
+```{r connnecting SQLite to Rstudio, echo=TRUE, eval = TRUE}
+library(DBI)
+library(RSQLite)
+library(bookdown)
+```
+
+Connected Rstudio to my SQLite File
+
+```{r Connecting RStudio to SQLite, eval = TRUE, echo = TRUE}
+Final_db <- dbConnect (RSQLite::SQLite(), "Final.db")
+```
+
+## Uploaded tables into Rstudio
+
+Importing tables from SQLite to Rstudio.
+
+```{r}
+Morphometrics <- dbGetQuery (conn = Final_db,
+            statement = "SELECT * FROM Morphometrics;")
+
+Capture_Site <- dbGetQuery (conn = Final_db,
+            statement = "SELECT * FROM Capture_Site;")
+Captures <- dbGetQuery (conn = Final_db,
+            statement = "SELECT * FROM Captures;")
+Lamprey <- dbGetQuery (conn = Final_db,
+            statement = "SELECT * FROM Lamprey;")
+Tags <- dbGetQuery (conn = Final_db,
+            statement = "SELECT * FROM Tags;")
+```
+
+Printing tables to double check uploads.
+
+```{r}
+head(Morphometrics)
+tail(Morphometrics)
+```
+
+```{r}
+print(Capture_Site)
+```
+
+```{r}
+head(Captures)
+tail(Captures)
+```
+
+```{r}
+head(Lamprey)
+tail(Lamprey)
+```
+
+```{r}
+head(Tags)
+tail(Tags)
+```

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Database Creation | Translocated Pacific Lamprey in the Warm Springs River</title>
+  <meta name="description" content="Chapter 2 Database Creation | Translocated Pacific Lamprey in the Warm Springs River" />
+  <meta name="generator" content="bookdown 0.42 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Database Creation | Translocated Pacific Lamprey in the Warm Springs River" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Database Creation | Translocated Pacific Lamprey in the Warm Springs River" />
+  
+  
+  
+
+<meta name="author" content="Aldwin Keo" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="cross.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#institution"><i class="fa fa-check"></i><b>1.1</b> Institution</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#study-site"><i class="fa fa-check"></i><b>1.2</b> Study Site</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="database-creation.html"><a href="database-creation.html"><i class="fa fa-check"></i><b>2</b> Database Creation</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="database-creation.html"><a href="database-creation.html#create-lamprey-table"><i class="fa fa-check"></i><b>2.1</b> Create Lamprey Table</a></li>
+<li class="chapter" data-level="2.2" data-path="database-creation.html"><a href="database-creation.html#create-captures-table"><i class="fa fa-check"></i><b>2.2</b> Create Captures Table</a></li>
+<li class="chapter" data-level="2.3" data-path="database-creation.html"><a href="database-creation.html#create-capture-site-table"><i class="fa fa-check"></i><b>2.3</b> Create Capture Site Table</a></li>
+<li class="chapter" data-level="2.4" data-path="database-creation.html"><a href="database-creation.html#create-tag-table"><i class="fa fa-check"></i><b>2.4</b> Create Tag Table</a></li>
+<li class="chapter" data-level="2.5" data-path="database-creation.html"><a href="database-creation.html#create-morphometrics-table"><i class="fa fa-check"></i><b>2.5</b> Create Morphometrics Table</a></li>
+<li class="chapter" data-level="2.6" data-path="database-creation.html"><a href="database-creation.html#connecting-sqlite-to-rstudio-to-upload-my-files"><i class="fa fa-check"></i><b>2.6</b> Connecting SQLite to Rstudio to upload my files</a></li>
+<li class="chapter" data-level="2.7" data-path="database-creation.html"><a href="database-creation.html#uploaded-tables-into-rstudio"><i class="fa fa-check"></i><b>2.7</b> Uploaded tables into Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="cross.html"><a href="cross.html"><i class="fa fa-check"></i><b>3</b> Data Cleaning</a>
+<ul>
+<li class="chapter" data-level="3.0.1" data-path="cross.html"><a href="cross.html#data-prepping-for"><i class="fa fa-check"></i><b>3.0.1</b> Data prepping for:</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>4</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="data-visualization.html"><a href="data-visualization.html#boxplots-lamprey-lengths-per-capture-and-per-release-site"><i class="fa fa-check"></i><b>4.1</b> Boxplots, lamprey lengths per capture and per release site</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Translocated Pacific Lamprey in the Warm Springs River</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="database-creation" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">Chapter 2</span> Database Creation<a href="database-creation.html#database-creation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Data collected for this project was: collection sites, release sites, length, girth, PIT tag ID, and genetic clips. below is a flow chart of tables created in Rstudio and SQLite.</p>
+<p><img src="images/2025-01-30%20(3).png" /></p>
+<div id="create-lamprey-table" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">2.1</span> Create Lamprey Table<a href="database-creation.html#create-lamprey-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Code used in SQLite to create the Lamprey Table. Table includes Lamprey ID(primary key), Capture Sites(Foreign Key), Release Sites, Genetic, and PIT Tag #(Foreign Key).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb1-1"><a href="database-creation.html#cb1-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Lamprey (</span>
+<span id="cb1-2"><a href="database-creation.html#cb1-2" tabindex="-1"></a>    [Lamprey <span class="kw">ID</span>]   TEXT    <span class="kw">PRIMARY</span> <span class="kw">KEY</span></span>
+<span id="cb1-3"><a href="database-creation.html#cb1-3" tabindex="-1"></a>                           <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-4"><a href="database-creation.html#cb1-4" tabindex="-1"></a>    [Capture Site] TEXT    <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb1-5"><a href="database-creation.html#cb1-5" tabindex="-1"></a>                           <span class="kw">REFERENCES</span> Captures ([Capture Site]),</span>
+<span id="cb1-6"><a href="database-creation.html#cb1-6" tabindex="-1"></a>    [Release Site] TEXT    <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb1-7"><a href="database-creation.html#cb1-7" tabindex="-1"></a>    Genetic        <span class="dt">INTEGER</span>,</span>
+<span id="cb1-8"><a href="database-creation.html#cb1-8" tabindex="-1"></a>    [PIT Tags #]   TEXT    <span class="kw">REFERENCES</span> Lamprey ([PIT Tags #]) </span>
+<span id="cb1-9"><a href="database-creation.html#cb1-9" tabindex="-1"></a>);</span></code></pre></div>
+<p>I copied and pasted the raw data from my excel file into the Lamprey Table.</p>
+</div>
+<div id="create-captures-table" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">2.2</span> Create Captures Table<a href="database-creation.html#create-captures-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Code used in SQLite to create Capture Table. Table includes: Capture ID(Primary Key), Lamprey ID (Foreign Key), Capture Site(Foreign Key), Date.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb2-1"><a href="database-creation.html#cb2-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Captures (</span>
+<span id="cb2-2"><a href="database-creation.html#cb2-2" tabindex="-1"></a>    [Capture <span class="kw">ID</span>]   TEXT <span class="kw">CONSTRAINT</span> [duplicated <span class="kw">values</span>] <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
+<span id="cb2-3"><a href="database-creation.html#cb2-3" tabindex="-1"></a>    [Lamprey <span class="kw">ID</span>]   TEXT <span class="kw">REFERENCES</span> Lamprey ([Lamprey <span class="kw">ID</span>]) MATCH SIMPLE,</span>
+<span id="cb2-4"><a href="database-creation.html#cb2-4" tabindex="-1"></a>    [Capture Site] TEXT <span class="kw">REFERENCES</span> Capture_Site ([Capture Site]) MATCH SIMPLE,</span>
+<span id="cb2-5"><a href="database-creation.html#cb2-5" tabindex="-1"></a>    <span class="dt">Date</span>           TEXT</span>
+<span id="cb2-6"><a href="database-creation.html#cb2-6" tabindex="-1"></a>);</span></code></pre></div>
+</div>
+<div id="create-capture-site-table" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">2.3</span> Create Capture Site Table<a href="database-creation.html#create-capture-site-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Code used in SQLite to create Capture Site Table. Table includes: Capture Site(Primary Key), Capture UTM-X, Capture UTM-Y.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb3-1"><a href="database-creation.html#cb3-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Capture_Site (</span>
+<span id="cb3-2"><a href="database-creation.html#cb3-2" tabindex="-1"></a>    [Capture Site]  TEXT    <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb3-3"><a href="database-creation.html#cb3-3" tabindex="-1"></a>                            <span class="kw">PRIMARY</span> <span class="kw">KEY</span></span>
+<span id="cb3-4"><a href="database-creation.html#cb3-4" tabindex="-1"></a>                            <span class="kw">UNIQUE</span> <span class="kw">ON</span> CONFLICT <span class="kw">REPLACE</span>,</span>
+<span id="cb3-5"><a href="database-creation.html#cb3-5" tabindex="-1"></a>    [Capture UTM<span class="op">-</span>X] <span class="dt">NUMERIC</span> <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb3-6"><a href="database-creation.html#cb3-6" tabindex="-1"></a>    [Capture UTM<span class="op">-</span>Y] <span class="dt">NUMERIC</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb3-7"><a href="database-creation.html#cb3-7" tabindex="-1"></a>);</span></code></pre></div>
+</div>
+<div id="create-tag-table" class="section level2 hasAnchor" number="2.4">
+<h2><span class="header-section-number">2.4</span> Create Tag Table<a href="database-creation.html#create-tag-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Code used in SQLite to create Tag Table. Table includes: PIT Tag #(Primary Key), Status, Lamprey ID (Foreign Key).</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb4-1"><a href="database-creation.html#cb4-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Tags (</span>
+<span id="cb4-2"><a href="database-creation.html#cb4-2" tabindex="-1"></a>    [PIT Tag #]  TEXT <span class="kw">PRIMARY</span> <span class="kw">KEY</span></span>
+<span id="cb4-3"><a href="database-creation.html#cb4-3" tabindex="-1"></a>                      <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb4-4"><a href="database-creation.html#cb4-4" tabindex="-1"></a>    Status       TEXT,</span>
+<span id="cb4-5"><a href="database-creation.html#cb4-5" tabindex="-1"></a>    [Lamprey <span class="kw">ID</span>] TEXT <span class="kw">REFERENCES</span> Lamprey ([Lamprey <span class="kw">ID</span>]) MATCH SIMPLE</span>
+<span id="cb4-6"><a href="database-creation.html#cb4-6" tabindex="-1"></a>);</span></code></pre></div>
+</div>
+<div id="create-morphometrics-table" class="section level2 hasAnchor" number="2.5">
+<h2><span class="header-section-number">2.5</span> Create Morphometrics Table<a href="database-creation.html#create-morphometrics-table" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Code used in SQLite to create Morphometrics Table. Table includes: Measurement ID(Primary Key), Length, Girth, Genetic, Lamprey ID(Foreign Key).</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sql"><code class="sourceCode sql"><span id="cb5-1"><a href="database-creation.html#cb5-1" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> Morphometrics (</span>
+<span id="cb5-2"><a href="database-creation.html#cb5-2" tabindex="-1"></a>    [Measurement <span class="kw">ID</span>] TEXT    <span class="kw">PRIMARY</span> <span class="kw">KEY</span></span>
+<span id="cb5-3"><a href="database-creation.html#cb5-3" tabindex="-1"></a>                             <span class="kw">NOT</span> <span class="kw">NULL</span>,</span>
+<span id="cb5-4"><a href="database-creation.html#cb5-4" tabindex="-1"></a>    [<span class="fu">Length</span> (mm)]    <span class="dt">NUMERIC</span>,</span>
+<span id="cb5-5"><a href="database-creation.html#cb5-5" tabindex="-1"></a>    [Girth (mm)]     <span class="dt">NUMERIC</span>,</span>
+<span id="cb5-6"><a href="database-creation.html#cb5-6" tabindex="-1"></a>    Genetic          <span class="dt">INTEGER</span>,</span>
+<span id="cb5-7"><a href="database-creation.html#cb5-7" tabindex="-1"></a>    [Lamprey <span class="kw">ID</span>]     TEXT    <span class="kw">REFERENCES</span> Lamprey ([Lamprey <span class="kw">ID</span>]) MATCH SIMPLE</span>
+<span id="cb5-8"><a href="database-creation.html#cb5-8" tabindex="-1"></a>                             <span class="kw">NOT</span> <span class="kw">NULL</span></span>
+<span id="cb5-9"><a href="database-creation.html#cb5-9" tabindex="-1"></a>);</span></code></pre></div>
+<p>After creating the tables I copied the information into the tables from my raw excel file of my data.</p>
+</div>
+<div id="connecting-sqlite-to-rstudio-to-upload-my-files" class="section level2 hasAnchor" number="2.6">
+<h2><span class="header-section-number">2.6</span> Connecting SQLite to Rstudio to upload my files<a href="database-creation.html#connecting-sqlite-to-rstudio-to-upload-my-files" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Load packages.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="database-creation.html#cb6-1" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb6-2"><a href="database-creation.html#cb6-2" tabindex="-1"></a><span class="fu">library</span>(RSQLite)</span>
+<span id="cb6-3"><a href="database-creation.html#cb6-3" tabindex="-1"></a><span class="fu">library</span>(bookdown)</span></code></pre></div>
+<p>Connected Rstudio to my SQLite File</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="database-creation.html#cb7-1" tabindex="-1"></a>Final_db <span class="ot">&lt;-</span> <span class="fu">dbConnect</span> (RSQLite<span class="sc">::</span><span class="fu">SQLite</span>(), <span class="st">&quot;Final.db&quot;</span>)</span></code></pre></div>
+</div>
+<div id="uploaded-tables-into-rstudio" class="section level2 hasAnchor" number="2.7">
+<h2><span class="header-section-number">2.7</span> Uploaded tables into Rstudio<a href="database-creation.html#uploaded-tables-into-rstudio" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Importing tables from SQLite to Rstudio.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="database-creation.html#cb8-1" tabindex="-1"></a>Morphometrics <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span> (<span class="at">conn =</span> Final_db,</span>
+<span id="cb8-2"><a href="database-creation.html#cb8-2" tabindex="-1"></a>            <span class="at">statement =</span> <span class="st">&quot;SELECT * FROM Morphometrics;&quot;</span>)</span>
+<span id="cb8-3"><a href="database-creation.html#cb8-3" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="database-creation.html#cb8-4" tabindex="-1"></a>Capture_Site <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span> (<span class="at">conn =</span> Final_db,</span>
+<span id="cb8-5"><a href="database-creation.html#cb8-5" tabindex="-1"></a>            <span class="at">statement =</span> <span class="st">&quot;SELECT * FROM Capture_Site;&quot;</span>)</span>
+<span id="cb8-6"><a href="database-creation.html#cb8-6" tabindex="-1"></a>Captures <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span> (<span class="at">conn =</span> Final_db,</span>
+<span id="cb8-7"><a href="database-creation.html#cb8-7" tabindex="-1"></a>            <span class="at">statement =</span> <span class="st">&quot;SELECT * FROM Captures;&quot;</span>)</span>
+<span id="cb8-8"><a href="database-creation.html#cb8-8" tabindex="-1"></a>Lamprey <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span> (<span class="at">conn =</span> Final_db,</span>
+<span id="cb8-9"><a href="database-creation.html#cb8-9" tabindex="-1"></a>            <span class="at">statement =</span> <span class="st">&quot;SELECT * FROM Lamprey;&quot;</span>)</span>
+<span id="cb8-10"><a href="database-creation.html#cb8-10" tabindex="-1"></a>Tags <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span> (<span class="at">conn =</span> Final_db,</span>
+<span id="cb8-11"><a href="database-creation.html#cb8-11" tabindex="-1"></a>            <span class="at">statement =</span> <span class="st">&quot;SELECT * FROM Tags;&quot;</span>)</span></code></pre></div>
+<p>Printing tables to double check uploads.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="database-creation.html#cb9-1" tabindex="-1"></a><span class="fu">head</span>(Morphometrics)</span></code></pre></div>
+<pre><code>##   Measurement ID Length (mm) Girth (mm) Genetic Lamprey ID
+## 1            M-1         630         30    4101       LI-1
+## 2             M2         610         27    4102       LI-2
+## 3            M-3         600         32    4103       LI-3
+## 4            M-4         610         30    4104       LI-4
+## 5            M-5         560         28    4105       LI-5
+## 6            M-6         590         31    4106       LI-6</code></pre>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="database-creation.html#cb11-1" tabindex="-1"></a><span class="fu">tail</span>(Morphometrics)</span></code></pre></div>
+<pre><code>##     Measurement ID Length (mm) Girth (mm) Genetic Lamprey ID
+## 133          M-133         700         40    4233     LI-133
+## 134          M-134         680         36    4234     LI-134
+## 135          M-135         660         42    4235     LI-135
+## 136          M-136         700         42    4236     LI-136
+## 137          M-137         710         33    4237     LI-137
+## 138          M-138         660         38    4238     LI-138</code></pre>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="database-creation.html#cb13-1" tabindex="-1"></a><span class="fu">print</span>(Capture_Site)</span></code></pre></div>
+<pre><code>##   Capture Site Capture UTM-X Capture UTM-Y
+## 1       Shears      653819.5       5013394
+## 2   Bonneville      581428.2       5053792</code></pre>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="database-creation.html#cb15-1" tabindex="-1"></a><span class="fu">head</span>(Captures)</span></code></pre></div>
+<pre><code>##   Capture ID Lamprey ID Capture Site     Date
+## 1       CI-1       LI-1       Shears 7/2/2023
+## 2       CI-2       LI-2       Shears 7/2/2023
+## 3       CI-3       LI-3       Shears 7/2/2023
+## 4       CI-4       LI-4       Shears 7/3/2023
+## 5       CI-5       LI-5       Shears 7/3/2023
+## 6       CI-6       LI-6       Shears 7/3/2023</code></pre>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="database-creation.html#cb17-1" tabindex="-1"></a><span class="fu">tail</span>(Captures)</span></code></pre></div>
+<pre><code>##     Capture ID Lamprey ID Capture Site      Date
+## 133     CI-133     LI-133   Bonneville 8/17/2023
+## 134     CI-134     LI-134   Bonneville 8/17/2023
+## 135     CI-135     LI-135   Bonneville 8/17/2023
+## 136     CI-136     LI-136   Bonneville 8/17/2023
+## 137     CI-137     LI-137   Bonneville 8/17/2023
+## 138     CI-138     LI-138   Bonneville 8/17/2023</code></pre>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="database-creation.html#cb19-1" tabindex="-1"></a><span class="fu">head</span>(Lamprey)</span></code></pre></div>
+<pre><code>##   Lamprey ID Capture Site Release Site Genetic     PIT Tags #
+## 1       LI-1       Shears           WS    4101 3D6.1D59577612
+## 2       LI-2       Shears           WS    4102 3D6.1D5957762D
+## 3       LI-3       Shears           WS    4103 3D6.1D5957764A
+## 4       LI-4       Shears         BEAV    4104 3D6.1D5957762F
+## 5       LI-5       Shears         BEAV    4105 3D6.1D59577648
+## 6       LI-6       Shears         BEAV    4106 3D6.1D59577607</code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="database-creation.html#cb21-1" tabindex="-1"></a><span class="fu">tail</span>(Lamprey)</span></code></pre></div>
+<pre><code>##     Lamprey ID Capture Site Release Site Genetic     PIT Tags #
+## 133     LI-133   Bonneville         BEAV    4233 3D6.1D5957745A
+## 134     LI-134   Bonneville           WS    4234 3D6.1D5957745D
+## 135     LI-135   Bonneville         BEAV    4235 3D6.1D5957743F
+## 136     LI-136   Bonneville           WS    4236 3D6.1D59577626
+## 137     LI-137   Bonneville         BEAV    4237 3D6.1D5957743E
+## 138     LI-138   Bonneville         BEAV    4238 3D6.1D59577452</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="database-creation.html#cb23-1" tabindex="-1"></a><span class="fu">head</span>(Tags)</span></code></pre></div>
+<pre><code>##        PIT Tag # Status Lamprey ID
+## 1 3D6.1D59577612  Alive       LI-1
+## 2 3D6.1D5957762D  Alive       LI-2
+## 3 3D6.1D5957764A  Alive       LI-3
+## 4 3D6.1D5957762F  Alive       LI-4
+## 5 3D6.1D59577648  Alive       LI-5
+## 6 3D6.1D59577607  Alive       LI-6</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="database-creation.html#cb25-1" tabindex="-1"></a><span class="fu">tail</span>(Tags)</span></code></pre></div>
+<pre><code>##          PIT Tag # Status Lamprey ID
+## 133 3D6.1D5957745A  Alive     LI-133
+## 134 3D6.1D5957745D  Alive     LI-134
+## 135 3D6.1D5957743F  Alive     LI-135
+## 136 3D6.1D59577626  Alive     LI-136
+## 137 3D6.1D5957743E  Alive     LI-137
+## 138 3D6.1D59577452  Alive     LI-138</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="cross.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/01-intro.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
