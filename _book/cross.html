@@ -139,7 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Minimal Book Example</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> url: your book url like https://bookdown.org/yihui/bookdown</a>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pacific Lamprey</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#institution"><i class="fa fa-check"></i><b>1.1</b> Institution</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#study-site"><i class="fa fa-check"></i><b>1.2</b> Study Site</a></li>
@@ -194,14 +194,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>renamed “Capture Site” and “Length (mm)” to “capture_site” and “length” to remove spaces</p></li>
 <li><p>grouped the columns by capture site</p></li>
 <li><p>calculated average length of lamprey per captured site</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="cross.html#cb1-1" tabindex="-1"></a><span class="co">#Creating table with average length per site</span></span>
-<span id="cb1-2"><a href="cross.html#cb1-2" tabindex="-1"></a>average_length_per_site <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Morphometrics, Lamprey, <span class="at">by =</span> <span class="st">&quot;Lamprey ID&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-3"><a href="cross.html#cb1-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Measurement ID&quot;</span>,<span class="sc">-</span><span class="st">&quot;Genetic.x&quot;</span>, <span class="sc">-</span><span class="st">&quot;Release Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;Genetic.y&quot;</span>, <span class="sc">-</span><span class="st">&quot;Release Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;PIT Tags #&quot;</span>,</span>
-<span id="cb1-4"><a href="cross.html#cb1-4" tabindex="-1"></a>         <span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-5"><a href="cross.html#cb1-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&quot;Capture Site&quot;</span>, <span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-6"><a href="cross.html#cb1-6" tabindex="-1"></a> <span class="fu">rename</span>(<span class="at">capture_site =</span> <span class="st">&quot;Capture Site&quot;</span>, <span class="at">length =</span> <span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-7"><a href="cross.html#cb1-7" tabindex="-1"></a>  <span class="fu">group_by</span>(capture_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb1-8"><a href="cross.html#cb1-8" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(length))</span></code></pre></div></li>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="cross.html#cb27-1" tabindex="-1"></a><span class="co">#Creating table with average length per site</span></span>
+<span id="cb27-2"><a href="cross.html#cb27-2" tabindex="-1"></a>average_length_per_site <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Morphometrics, Lamprey, <span class="at">by =</span> <span class="st">&quot;Lamprey ID&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a href="cross.html#cb27-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Measurement ID&quot;</span>,<span class="sc">-</span><span class="st">&quot;Genetic.x&quot;</span>, <span class="sc">-</span><span class="st">&quot;Release Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;Genetic.y&quot;</span>, <span class="sc">-</span><span class="st">&quot;Release Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;PIT Tags #&quot;</span>,</span>
+<span id="cb27-4"><a href="cross.html#cb27-4" tabindex="-1"></a>         <span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-5"><a href="cross.html#cb27-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&quot;Capture Site&quot;</span>, <span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-6"><a href="cross.html#cb27-6" tabindex="-1"></a> <span class="fu">rename</span>(<span class="at">capture_site =</span> <span class="st">&quot;Capture Site&quot;</span>, <span class="at">length =</span> <span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-7"><a href="cross.html#cb27-7" tabindex="-1"></a>  <span class="fu">group_by</span>(capture_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-8"><a href="cross.html#cb27-8" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(length))</span></code></pre></div></li>
 </ol></li>
 <li><p>average girth per capture site</p>
 <ol style="list-style-type: decimal">
@@ -210,14 +210,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>renamed “Capture Site” and “Girth (mm)” to “capture_site” and “girth” to remove spaces</p></li>
 <li><p>grouped the columns by capture site</p></li>
 <li><p>calculated average length of lamprey per captured site</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="cross.html#cb2-1" tabindex="-1"></a><span class="co">#create table with average girth per site</span></span>
-<span id="cb2-2"><a href="cross.html#cb2-2" tabindex="-1"></a>average_girth_per_site <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Morphometrics, Lamprey, <span class="at">by =</span> <span class="st">&quot;Lamprey ID&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-3"><a href="cross.html#cb2-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Measurement ID&quot;</span>,<span class="sc">-</span><span class="st">&quot;Genetic.x&quot;</span>, <span class="sc">-</span><span class="st">&quot;Release Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;Genetic.y&quot;</span>, <span class="sc">-</span><span class="st">&quot;Release Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;PIT Tags #&quot;</span>,</span>
-<span id="cb2-4"><a href="cross.html#cb2-4" tabindex="-1"></a>         <span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-5"><a href="cross.html#cb2-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&quot;Capture Site&quot;</span>, <span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-6"><a href="cross.html#cb2-6" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">capture_site =</span> <span class="st">&quot;Capture Site&quot;</span>, <span class="at">girth =</span> <span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-7"><a href="cross.html#cb2-7" tabindex="-1"></a>  <span class="fu">group_by</span>(capture_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-8"><a href="cross.html#cb2-8" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(girth))</span></code></pre></div></li>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="cross.html#cb28-1" tabindex="-1"></a><span class="co">#create table with average girth per site</span></span>
+<span id="cb28-2"><a href="cross.html#cb28-2" tabindex="-1"></a>average_girth_per_site <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Morphometrics, Lamprey, <span class="at">by =</span> <span class="st">&quot;Lamprey ID&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-3"><a href="cross.html#cb28-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Measurement ID&quot;</span>,<span class="sc">-</span><span class="st">&quot;Genetic.x&quot;</span>, <span class="sc">-</span><span class="st">&quot;Release Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;Genetic.y&quot;</span>, <span class="sc">-</span><span class="st">&quot;Release Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;PIT Tags #&quot;</span>,</span>
+<span id="cb28-4"><a href="cross.html#cb28-4" tabindex="-1"></a>         <span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-5"><a href="cross.html#cb28-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&quot;Capture Site&quot;</span>, <span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-6"><a href="cross.html#cb28-6" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">capture_site =</span> <span class="st">&quot;Capture Site&quot;</span>, <span class="at">girth =</span> <span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-7"><a href="cross.html#cb28-7" tabindex="-1"></a>  <span class="fu">group_by</span>(capture_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-8"><a href="cross.html#cb28-8" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(girth))</span></code></pre></div></li>
 </ol></li>
 <li><p>average length per release site</p>
 <ol style="list-style-type: decimal">
@@ -228,16 +228,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>renamed “Beaver” responses to “BEAV” to match the data in the table</p></li>
 <li><p>grouped the columns by release site</p></li>
 <li><p>calculated average length of lamprey per captured site</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="cross.html#cb3-1" tabindex="-1"></a><span class="co">#create table with average length per release site</span></span>
-<span id="cb3-2"><a href="cross.html#cb3-2" tabindex="-1"></a>average_length_per_release_site <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Morphometrics, Lamprey, <span class="at">by =</span> <span class="st">&quot;Lamprey ID&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-3"><a href="cross.html#cb3-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Measurement ID&quot;</span>,<span class="sc">-</span><span class="st">&quot;Genetic.x&quot;</span>, <span class="sc">-</span><span class="st">&quot;Genetic.y&quot;</span>, <span class="sc">-</span><span class="st">&quot;Capture Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;PIT Tags #&quot;</span>,</span>
-<span id="cb3-4"><a href="cross.html#cb3-4" tabindex="-1"></a>         <span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-5"><a href="cross.html#cb3-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&quot;Release Site&quot;</span>, <span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-6"><a href="cross.html#cb3-6" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">release_site =</span> <span class="st">&quot;Release Site&quot;</span>, <span class="at">length =</span> <span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-7"><a href="cross.html#cb3-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">release_site =</span> <span class="fu">case_when</span>(</span>
-<span id="cb3-8"><a href="cross.html#cb3-8" tabindex="-1"></a>    release_site <span class="sc">==</span> <span class="st">&quot;Beaver&quot;</span> <span class="sc">~</span> <span class="st">&quot;BEAV&quot;</span>,<span class="cn">TRUE</span> <span class="sc">~</span> release_site)) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-9"><a href="cross.html#cb3-9" tabindex="-1"></a>  <span class="fu">group_by</span>(release_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb3-10"><a href="cross.html#cb3-10" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(length))</span></code></pre></div></li>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="cross.html#cb29-1" tabindex="-1"></a><span class="co">#create table with average length per release site</span></span>
+<span id="cb29-2"><a href="cross.html#cb29-2" tabindex="-1"></a>average_length_per_release_site <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Morphometrics, Lamprey, <span class="at">by =</span> <span class="st">&quot;Lamprey ID&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-3"><a href="cross.html#cb29-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Measurement ID&quot;</span>,<span class="sc">-</span><span class="st">&quot;Genetic.x&quot;</span>, <span class="sc">-</span><span class="st">&quot;Genetic.y&quot;</span>, <span class="sc">-</span><span class="st">&quot;Capture Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;PIT Tags #&quot;</span>,</span>
+<span id="cb29-4"><a href="cross.html#cb29-4" tabindex="-1"></a>         <span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-5"><a href="cross.html#cb29-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&quot;Release Site&quot;</span>, <span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-6"><a href="cross.html#cb29-6" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">release_site =</span> <span class="st">&quot;Release Site&quot;</span>, <span class="at">length =</span> <span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-7"><a href="cross.html#cb29-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">release_site =</span> <span class="fu">case_when</span>(</span>
+<span id="cb29-8"><a href="cross.html#cb29-8" tabindex="-1"></a>    release_site <span class="sc">==</span> <span class="st">&quot;Beaver&quot;</span> <span class="sc">~</span> <span class="st">&quot;BEAV&quot;</span>,<span class="cn">TRUE</span> <span class="sc">~</span> release_site)) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-9"><a href="cross.html#cb29-9" tabindex="-1"></a>  <span class="fu">group_by</span>(release_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb29-10"><a href="cross.html#cb29-10" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(length))</span></code></pre></div></li>
 </ol></li>
 <li><p>average girth per release site</p>
 <ol style="list-style-type: decimal">
@@ -248,16 +248,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>renamed “Beaver” responses to “BEAV” to match the data in the table</p></li>
 <li><p>grouped the columns by release site</p></li>
 <li><p>calculated average length of lamprey per captured site</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="cross.html#cb4-1" tabindex="-1"></a><span class="co">#create table with average girth per relase site</span></span>
-<span id="cb4-2"><a href="cross.html#cb4-2" tabindex="-1"></a>average_girth_per_release_site <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Morphometrics, Lamprey, <span class="at">by =</span> <span class="st">&quot;Lamprey ID&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="cross.html#cb4-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Measurement ID&quot;</span>,<span class="sc">-</span><span class="st">&quot;Genetic.x&quot;</span>, <span class="sc">-</span><span class="st">&quot;Genetic.y&quot;</span>, <span class="sc">-</span><span class="st">&quot;Capture Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;PIT Tags #&quot;</span>,</span>
-<span id="cb4-4"><a href="cross.html#cb4-4" tabindex="-1"></a>         <span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-5"><a href="cross.html#cb4-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&quot;Release Site&quot;</span>, <span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-6"><a href="cross.html#cb4-6" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">release_site =</span> <span class="st">&quot;Release Site&quot;</span>, <span class="at">girth =</span> <span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-7"><a href="cross.html#cb4-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">release_site =</span> <span class="fu">case_when</span>(</span>
-<span id="cb4-8"><a href="cross.html#cb4-8" tabindex="-1"></a>    release_site <span class="sc">==</span> <span class="st">&quot;Beaver&quot;</span> <span class="sc">~</span> <span class="st">&quot;BEAV&quot;</span>,<span class="cn">TRUE</span> <span class="sc">~</span> release_site)) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-9"><a href="cross.html#cb4-9" tabindex="-1"></a>  <span class="fu">group_by</span>(release_site) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-10"><a href="cross.html#cb4-10" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(girth))</span></code></pre></div></li>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="cross.html#cb30-1" tabindex="-1"></a><span class="co">#create table with average girth per relase site</span></span>
+<span id="cb30-2"><a href="cross.html#cb30-2" tabindex="-1"></a>average_girth_per_release_site <span class="ot">&lt;-</span> <span class="fu">left_join</span>(Morphometrics, Lamprey, <span class="at">by =</span> <span class="st">&quot;Lamprey ID&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-3"><a href="cross.html#cb30-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Measurement ID&quot;</span>,<span class="sc">-</span><span class="st">&quot;Genetic.x&quot;</span>, <span class="sc">-</span><span class="st">&quot;Genetic.y&quot;</span>, <span class="sc">-</span><span class="st">&quot;Capture Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;PIT Tags #&quot;</span>,</span>
+<span id="cb30-4"><a href="cross.html#cb30-4" tabindex="-1"></a>         <span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Length (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-5"><a href="cross.html#cb30-5" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">&quot;Release Site&quot;</span>, <span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-6"><a href="cross.html#cb30-6" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">release_site =</span> <span class="st">&quot;Release Site&quot;</span>, <span class="at">girth =</span> <span class="st">&quot;Girth (mm)&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-7"><a href="cross.html#cb30-7" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">release_site =</span> <span class="fu">case_when</span>(</span>
+<span id="cb30-8"><a href="cross.html#cb30-8" tabindex="-1"></a>    release_site <span class="sc">==</span> <span class="st">&quot;Beaver&quot;</span> <span class="sc">~</span> <span class="st">&quot;BEAV&quot;</span>,<span class="cn">TRUE</span> <span class="sc">~</span> release_site)) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-9"><a href="cross.html#cb30-9" tabindex="-1"></a>  <span class="fu">group_by</span>(release_site) <span class="sc">%&gt;%</span> </span>
+<span id="cb30-10"><a href="cross.html#cb30-10" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">average =</span> <span class="fu">mean</span>(girth))</span></code></pre></div></li>
 </ol></li>
 <li><p>number of captured lamprey per day at Sherears Falls</p>
 <ol style="list-style-type: decimal">
@@ -267,15 +267,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>filtered for Sherears captured lamprey only</p></li>
 <li><p>grouped the lamprey by the day they were captured</p></li>
 <li><p>tallied by how many were captured per day</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="cross.html#cb5-1" tabindex="-1"></a><span class="co"># how many lamprey captured per day</span></span>
-<span id="cb5-2"><a href="cross.html#cb5-2" tabindex="-1"></a>capture_per_day_sherears <span class="ot">&lt;-</span> Captures <span class="sc">%&gt;%</span> </span>
-<span id="cb5-3"><a href="cross.html#cb5-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Capture ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-4"><a href="cross.html#cb5-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">capture_site =</span> <span class="st">&quot;Capture Site&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-5"><a href="cross.html#cb5-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">capture_site =</span> <span class="fu">case_when</span>(</span>
-<span id="cb5-6"><a href="cross.html#cb5-6" tabindex="-1"></a>    capture_site <span class="sc">==</span> <span class="st">&quot;Shears&quot;</span> <span class="sc">~</span> <span class="st">&quot;Sherears&quot;</span>, <span class="cn">TRUE</span> <span class="sc">~</span> capture_site)) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-7"><a href="cross.html#cb5-7" tabindex="-1"></a>  <span class="fu">filter</span>(capture_site <span class="sc">==</span> <span class="st">&quot;Sherears&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-8"><a href="cross.html#cb5-8" tabindex="-1"></a>  <span class="fu">group_by</span>(Date) <span class="sc">%&gt;%</span> </span>
-<span id="cb5-9"><a href="cross.html#cb5-9" tabindex="-1"></a>  tally</span></code></pre></div></li>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="cross.html#cb31-1" tabindex="-1"></a><span class="co"># how many lamprey captured per day</span></span>
+<span id="cb31-2"><a href="cross.html#cb31-2" tabindex="-1"></a>capture_per_day_sherears <span class="ot">&lt;-</span> Captures <span class="sc">%&gt;%</span> </span>
+<span id="cb31-3"><a href="cross.html#cb31-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Capture ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-4"><a href="cross.html#cb31-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">capture_site =</span> <span class="st">&quot;Capture Site&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-5"><a href="cross.html#cb31-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">capture_site =</span> <span class="fu">case_when</span>(</span>
+<span id="cb31-6"><a href="cross.html#cb31-6" tabindex="-1"></a>    capture_site <span class="sc">==</span> <span class="st">&quot;Shears&quot;</span> <span class="sc">~</span> <span class="st">&quot;Sherears&quot;</span>, <span class="cn">TRUE</span> <span class="sc">~</span> capture_site)) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-7"><a href="cross.html#cb31-7" tabindex="-1"></a>  <span class="fu">filter</span>(capture_site <span class="sc">==</span> <span class="st">&quot;Sherears&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-8"><a href="cross.html#cb31-8" tabindex="-1"></a>  <span class="fu">group_by</span>(Date) <span class="sc">%&gt;%</span> </span>
+<span id="cb31-9"><a href="cross.html#cb31-9" tabindex="-1"></a>  tally</span></code></pre></div></li>
 </ol></li>
 <li><p>Suvival of tagging at the Warm Springs Hatchery Site</p>
 <ol style="list-style-type: decimal">
@@ -285,14 +285,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>added column “survival” into the table and set alive = 1 and dead = 0</p></li>
 <li><p>filtered out all sites besides “WS Hatch”</p></li>
 <li><p>calculated survival by summing Alive Lamprey by number of released at “WS Hatch) and multiplying by 100 to get an percentage</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="cross.html#cb6-1" tabindex="-1"></a><span class="co">#survival after tagging</span></span>
-<span id="cb6-2"><a href="cross.html#cb6-2" tabindex="-1"></a>tag_survival_capture_site <span class="ot">&lt;-</span> <span class="fu">full_join</span>(Lamprey, Tags) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-3"><a href="cross.html#cb6-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Capture Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;Genetic&quot;</span>, <span class="sc">-</span><span class="st">&quot;PIT Tag #&quot;</span>,<span class="sc">-</span><span class="st">&quot;PIT Tags #&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-4"><a href="cross.html#cb6-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">release_site =</span> <span class="st">&quot;Release Site&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-5"><a href="cross.html#cb6-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">survival =</span> <span class="fu">ifelse</span>(Status <span class="sc">==</span> <span class="st">&quot;Alive&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-6"><a href="cross.html#cb6-6" tabindex="-1"></a>  <span class="fu">filter</span>(release_site <span class="sc">==</span> <span class="st">&quot;WS Hatch&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-7"><a href="cross.html#cb6-7" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Status&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb6-8"><a href="cross.html#cb6-8" tabindex="-1"></a>  <span class="fu">summarize</span>((<span class="fu">sum</span>(survival)<span class="sc">/</span><span class="dv">40</span>))<span class="sc">*</span><span class="dv">100</span></span></code></pre></div></li>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="cross.html#cb32-1" tabindex="-1"></a><span class="co">#survival after tagging</span></span>
+<span id="cb32-2"><a href="cross.html#cb32-2" tabindex="-1"></a>tag_survival_capture_site <span class="ot">&lt;-</span> <span class="fu">full_join</span>(Lamprey, Tags) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a href="cross.html#cb32-3" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Lamprey ID&quot;</span>, <span class="sc">-</span><span class="st">&quot;Capture Site&quot;</span>, <span class="sc">-</span><span class="st">&quot;Genetic&quot;</span>, <span class="sc">-</span><span class="st">&quot;PIT Tag #&quot;</span>,<span class="sc">-</span><span class="st">&quot;PIT Tags #&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-4"><a href="cross.html#cb32-4" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">release_site =</span> <span class="st">&quot;Release Site&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-5"><a href="cross.html#cb32-5" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">survival =</span> <span class="fu">ifelse</span>(Status <span class="sc">==</span> <span class="st">&quot;Alive&quot;</span>, <span class="dv">1</span>, <span class="dv">0</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-6"><a href="cross.html#cb32-6" tabindex="-1"></a>  <span class="fu">filter</span>(release_site <span class="sc">==</span> <span class="st">&quot;WS Hatch&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-7"><a href="cross.html#cb32-7" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span><span class="st">&quot;Status&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-8"><a href="cross.html#cb32-8" tabindex="-1"></a>  <span class="fu">summarize</span>((<span class="fu">sum</span>(survival)<span class="sc">/</span><span class="dv">40</span>))<span class="sc">*</span><span class="dv">100</span></span></code></pre></div></li>
 </ol></li>
 </ol>
 
